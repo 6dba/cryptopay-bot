@@ -1,0 +1,5 @@
+start: |
+  Nice to meet you, <b>${username}</b>!
+  This is my Photobank, where can you view or purchase one of my pictures! Payment is made in cryptocurrency at the expense of the @CryptoBot service.
+language: Choose your preferred <b>language</b>.
+language_changed: Updated! 🇬🇧
