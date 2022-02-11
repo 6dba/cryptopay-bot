@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const { Telegraf, Markup, session } = require('telegraf')
 const path = require('path')
-const TelegrafI18n = require('telegraf-i18n')
+const TelegrafI18n = require('telegraf-i18n') 
 
 const i18n = new TelegrafI18n({
     useSession: true,
@@ -11,6 +11,7 @@ const i18n = new TelegrafI18n({
     directory: path.resolve(__dirname, 'locales')
 })
 const bot = new Telegraf(process.env.BOT_TOKEN)
+
 bot.use(session())
 bot.use(i18n.middleware())
 
@@ -26,8 +27,19 @@ bot.command('language', async (ctx) => {
     Markup.inlineKeyboard([
       Markup.callbackButton('RU 🇷🇺', 'ru'),
       Markup.callbackButton('EN 🇬🇧', 'en')
-    ]).extra()
-    )
+    ]).extra())
+})
+
+bot.command('photos', async (ctx) => {
+    // const photo = 
+    // const message = ctx.i18n.t('photo', {price: price})
+    // return ctx.replyWithPhoto({url: url}, {caption: discription}, 
+    //     Markup.inlineKeyboard([
+    //     Markup.callbackButton('<<', 'begin'),
+    //     Markup.callbackButton('<', 'previous'),
+    //     Markup.callbackButton('>', 'next'),
+    //     Markup.callbackButton('>>', 'end')], 
+    //     [Markup.callbackButton('Buy', 'purchase')]).extra())
 })
 
 bot.action('ru', async (ctx) => {
